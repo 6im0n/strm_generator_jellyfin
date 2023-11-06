@@ -12,7 +12,10 @@ fi
 while IFS= read -r line; do
   # Extract the last string after the last slash
   filename="${line##*/}"
-  
+
+  # Replace "%20" with "_"
+  filename="${filename//%20/_}"
+
   # Generate the output file name with the extracted filename and .strm extension
   output_file="${filename}.strm"
 
@@ -21,3 +24,4 @@ while IFS= read -r line; do
 
   echo "Created file: $output_file"
 done < "$input_file"
+
