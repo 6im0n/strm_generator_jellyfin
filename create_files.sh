@@ -16,6 +16,12 @@ while IFS= read -r line; do
   # Replace "%20" with "_"
   filename="${filename//%20/_}"
 
+    # Replace "%29" with ")"
+  filename="${filename//%29/)}"
+
+      # Replace "%28" with "("
+  filename="${filename//%28/(}"
+
   # Generate the output file name with the extracted filename and .strm extension
   output_file="${filename}.strm"
 
